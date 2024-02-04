@@ -4,44 +4,8 @@ logging:
     ROOT: INFO
     org.tui: INFO
     org.springframework: WARN
-    #org.hibernate.SQL: ERROR
-    #org.hibernate.type.descriptor.sql.BasicBinder: ERROR
 
 # Server
 server:
   port: ${SERVER_PORT:80}
 
-# Datasource
-#spring:
-#  datasource:
-#    type: com.zaxxer.hikari.HikariDataSource
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://${DB_HOST}:${DB_PORT:3306}/${DB_DATABASE:db}?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
-#    username: ${DB_USERNAME}
-#    password: ${DB_PASSWORD}
-#    hikari:
-#      connection-test-query: SELECT 1
-#      jdbc-url: ${spring.datasource.url}
-#      maximum-pool-size: 17
-#      minimum-idle: 10
-#      pool-name: datasource-data
-#      username: ${spring.datasource.username}
-#      password: ${spring.datasource.password}
-#  flyway:
-#    enabled: false
-#    locations: classpath:db/migration
-#    baseline-on-migrate: true
-#  jpa:
-#    database: default # let spring decide what dialect we're talking
-#    generate-ddl: false
-#    hibernate:
-#      ddl-auto: validate
-#    properties:
-#      hibernate:
-#        cache:
-#          use_second_level_cache: false
-#        dialect: org.hibernate.dialect.MySQLDialect
-#        format_sql: true
-#        jdbc:
-#          time_zone: "UTC"
-#    open-in-view: false

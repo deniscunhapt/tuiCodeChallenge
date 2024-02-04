@@ -14,8 +14,6 @@ management:
   endpoint:
     health:
       enabled: true
-    #    flyway:
-    #      enabled: true
     info:
       enabled: true
   info:
@@ -30,19 +28,5 @@ spring:
     default-property-inclusion: non_null
     serialization:
       fail-on-empty-beans: false
-  #jpa:
-  #  database: default
-  #  generate-ddl: false
-  #  hibernate:
-  #    ddl-auto: validate
-  #  properties:
-  #    hibernate:
-  #      dialect: org.hibernate.dialect.MySQLDialect
-  #      format_sql: true
-  #      jdbc:
-  #        time_zone: "UTC"
-  #      cache:
-  #        use_second_level_cache: false
-  #  open-in-view: false
   profiles:
     active: dev

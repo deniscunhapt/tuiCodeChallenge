@@ -3,39 +3,5 @@ logging:
     org:
       springframework:
         web: DEBUG
-      #hibernate:
-      #  sql: DEBUG
-      #  type.descriptor.sql.BasicBinder: ERROR
-    org.tui.codechallenge: DEBUG
 
-#spring:
-#  datasource:
-#    driver-class-name: org.h2.Driver
-#    url: jdbc:h2:mem:testDB;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MYSQL
-#    username: sa
-#    password: password
-#    hikari:
-#      connection-test-query: SELECT 1
-#      jdbc-url: ${spring.datasource.url}
-#      maximum-pool-size: 17
-#      minimum-idle: 10
-#      pool-name: datasource-data
-#      username: ${spring.datasource.username}
-#      password: ${spring.datasource.password}
-#  jpa:
-#    database-platform: org.hibernate.dialect.H2Dialect
-#    generate-ddl: true
-#    hibernate:
-#      ddl-auto: validate
-#    show-sql: true
-#    properties:
-#      cache:
-#        user_second_level_cache: false
-#  flyway:
-#    enabled: true
-#    baseline-on-migrate: true
-#    locations: classpath:db/test
-#    clean-disabled: false
-#  sql:
-#    init:
-#      mode: always
+    org.tui.codechallenge: DEBUG

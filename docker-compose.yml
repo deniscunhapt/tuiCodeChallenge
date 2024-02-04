@@ -1,0 +1,18 @@
+version: "3"
+services:
+  api-tui-code-challenge:
+    container_name: api-tui-code-challenge
+    build:
+      dockerfile: docker/app/Dockerfile
+      context: .
+      args:
+        JAVA_VERSION: 17
+        MAVEN_VERSION: 3.8.6
+    restart: on-failure
+    healthcheck:
+      test: "curl --fail --silent localhost:8098/challenge/actuator/health | grep UP || exit 1"
+      interval: 20s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "8098:8098"

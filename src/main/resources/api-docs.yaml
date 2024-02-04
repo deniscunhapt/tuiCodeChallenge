@@ -1,0 +1,50 @@
+openapi: 3.0.1
+servers:
+- url: /challenge
+  description: Default Challenge URL
+paths:
+  /api/v1/repositories:
+    get:
+      tags:
+      - code-challange-controller-v-1
+      operationId: getRepositories
+      parameters:
+      - name: username
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RepositoryDto'
+components:
+  schemas:
+    BranchDto:
+      type: object
+      properties:
+        name:
+          type: string
+        lastCommitSha:
+          type: string
+    Owner:
+      type: object
+      properties:
+        login:
+          type: string
+    RepositoryDto:
+      type: object
+      properties:
+        name:
+          type: string
+        owner:
+          $ref: '#/components/schemas/Owner'
+        branches:
+          type: array
+          items:
+            $ref: '#/components/schemas/BranchDto'

@@ -1,7 +1,7 @@
 package org.tui.codechallenge.services.exceptions;
 
-public class UserNotFoundException extends RuntimeException{
-    public UserNotFoundException(String message) {
+public class ErrorProcessingRepositoryException extends RuntimeException{
+    public ErrorProcessingRepositoryException(String message) {
         super(message);
     }
 

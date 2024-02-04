@@ -9,7 +9,7 @@ import org.springframework.web.HttpMediaTypeNotAcceptableException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
-import org.tui.codechallenge.services.exceptions.DomainNotFoundException;
+import org.tui.codechallenge.services.exceptions.ErrorProcessingRepositoryException;
 import org.tui.codechallenge.services.exceptions.UserNotFoundException;
 
 @Slf4j
@@ -22,16 +22,16 @@ public class ExceptionControllerAdvice {
         return new ResponseEntity<>(apiError, HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(DomainNotFoundException.class)
-    public ResponseEntity<Object> handleDomainNotFoundException(DomainNotFoundException ex, WebRequest request) {
-        ApiError apiError = new ApiError(HttpStatus.NOT_FOUND.value(), ex.getMessage());
-        return new ResponseEntity<>(apiError, HttpStatus.NOT_FOUND);
-    }
-
 
     @ExceptionHandler(HttpMediaTypeNotAcceptableException.class)
     public ResponseEntity<Object> handleHttpMediaTypeNotAcceptableException(HttpMediaTypeNotAcceptableException ex, WebRequest request) {
         ApiError apiError = new ApiError(HttpStatus.NOT_ACCEPTABLE.value(), "Acceptable content type: application/json");
         return new ResponseEntity<>(apiError, HttpStatus.NOT_ACCEPTABLE);
+    }
+
+    @ExceptionHandler(ErrorProcessingRepositoryException.class)
+    public ResponseEntity<Object> handleErrorProcessingRepositoryException(ErrorProcessingRepositoryException ex, WebRequest request) {
+        ApiError apiError = new ApiError(HttpStatus.BAD_REQUEST.value(), ex.getMessage());
+        return new ResponseEntity<>(apiError, HttpStatus.BAD_REQUEST);
     }
 }

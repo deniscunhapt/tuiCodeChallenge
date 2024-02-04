@@ -14,7 +14,6 @@ import lombok.Setter;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Owner {
 
-    @JsonProperty("login")
     private String login;
 
 }

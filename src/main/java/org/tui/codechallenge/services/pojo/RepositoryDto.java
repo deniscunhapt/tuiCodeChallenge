@@ -16,11 +16,9 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RepositoryDto {
 
-    @JsonProperty("name")
     private String name;
 
-    @JsonProperty("owner")
-    private Owner ownerLogin;
+    private Owner owner;
 
     private List<BranchDto> branches;
 

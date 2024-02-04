@@ -36,7 +36,7 @@ public class GitHubService implements IGitHubService {
         try {
            response = restTemplate.getForEntity(url, String.class);
         }catch(HttpClientErrorException.NotFound e){
-            throw new UserNotFoundException("User: " + username  + " not found");
+            throw new UserNotFoundException("GitHub user not found: " + username);
         }
         if (response.getStatusCode() == HttpStatus.OK) {
             try {
